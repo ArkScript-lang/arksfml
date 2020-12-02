@@ -45,15 +45,15 @@ Value sf_load_font(std::vector<Value>& n, Ark::VM* vm)
 Value sf_make_text(std::vector<Value>& n, Ark::VM* vm)
 {
     if (n.size() != 4)
-        throw std::runtime_error("sf:make:text: need 4 arguments: font, text, size, color");
+        throw std::runtime_error("sf:text:make: need 4 arguments: font, text, size, color");
     if (n[0].valueType() != ValueType::User || !n[0].usertype_ref().is<sf::Font>())
-        throw Ark::TypeError("sf:make:text: invalid argument (font)");
+        throw Ark::TypeError("sf:text:make: invalid argument (font)");
     if (n[1].valueType() != ValueType::String)
-        throw Ark::TypeError("sf:make:text: invalid argument (text)");
+        throw Ark::TypeError("sf:text:make: invalid argument (text)");
     if (n[2].valueType() != ValueType::Number)
-        throw Ark::TypeError("sf:make:text: invalid argument (size)");
+        throw Ark::TypeError("sf:text:make: invalid argument (size)");
     if (n[3].valueType() != ValueType::List)
-        throw Ark::TypeError("sf:make:text: invalid argument (color)");
+        throw Ark::TypeError("sf:text:make: invalid argument (color)");
 
     sf::Text& object = get_texts().emplace_back();
     object.setFont(n[0].usertype_ref().as<sf::Font>());
@@ -71,11 +71,11 @@ Value sf_make_text(std::vector<Value>& n, Ark::VM* vm)
 Value sf_set_text(std::vector<Value>& n, Ark::VM* vm)
 {
     if (n.size() != 2)
-        throw std::runtime_error("sf:set:text: need 2 arguments: text object, new value");
+        throw std::runtime_error("sf:text:set: need 2 arguments: text object, new value");
     if (n[0].valueType() != ValueType::User || !n[0].usertype_ref().is<sf::Text>())
-        throw Ark::TypeError("sf:set:text: invalid argument (text object)");
+        throw Ark::TypeError("sf:text:set: invalid argument (text object)");
     if (n[1].valueType() != ValueType::String)
-        throw Ark::TypeError("sf:set:text: invalid argument (new value)");
+        throw Ark::TypeError("sf:text:set: invalid argument (new value)");
 
     n[0].usertype_ref().as<sf::Text>().setString(n[1].string().toString());
     return Nil;
