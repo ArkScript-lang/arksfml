@@ -1,17 +1,15 @@
-Value sf_window_init(std::vector<Value>& n, Ark::VM* vm);
-Value sf_window_isopen(std::vector<Value>& n, Ark::VM* vm);
-Value sf_poll_event(std::vector<Value>& n, Ark::VM* vm);
-Value sf_window_clear(std::vector<Value>& n, Ark::VM* vm);
-Value sf_draw(std::vector<Value>& n, Ark::VM* vm);
-Value sf_window_display(std::vector<Value>& n, Ark::VM* vm);
-Value sf_window_set_fps(std::vector<Value>& n, Ark::VM* vm);
-Value sf_load_sprite(std::vector<Value>& n, Ark::VM* vm);
-Value sf_load_font(std::vector<Value>& n, Ark::VM* vm);
-Value sf_make_text(std::vector<Value>& n, Ark::VM* vm);
-Value sf_set_text(std::vector<Value>& n, Ark::VM* vm);
-Value sf_setpos(std::vector<Value>& n, Ark::VM* vm);
-Value sf_width(std::vector<Value>& n, Ark::VM* vm);
-Value sf_height(std::vector<Value>& n, Ark::VM* vm);
-Value sf_event(std::vector<Value>& n, Ark::VM* vm);
-Value sf_window_close(std::vector<Value>& n, Ark::VM* vm);
-Value sf_load_texture(std::vector<Value>& n, Ark::VM* vm);
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include <list>
+
+sf::RenderWindow& get_window();
+sf::Event& get_event();
+std::list<sf::Texture>& get_textures();
+std::list<sf::Sprite>& get_sprites();
+std::list<sf::Font>& get_fonts();
+std::list<sf::Text>& get_texts();

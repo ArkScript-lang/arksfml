@@ -1,5 +1,8 @@
 #include <Ark/Module.hpp>
-#include <sf_module.hpp>
+
+#include <event.hpp>
+#include <graphics.hpp>
+#include <window.hpp>
 
 // module functions mapping
 ARK_API_EXPORT mapping* getFunctionsMapping()
