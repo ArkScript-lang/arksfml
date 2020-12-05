@@ -5,6 +5,8 @@
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <Ark/Module.hpp>
+
 #include <list>
 
 sf::RenderWindow& get_window();
