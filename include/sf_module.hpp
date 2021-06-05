@@ -6,6 +6,8 @@
 #include <SFML/Window/Event.hpp>
 
 #include <list>
+#include <vector>
+#include <Ark/Module.hpp>
 
 sf::RenderWindow& get_window();
 sf::Event& get_event();
