@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 cmake_policy(SET CMP0074 NEW)
 
-project(sfml)
+project(sf)
 
 if (CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -pg -g -no-pie")
