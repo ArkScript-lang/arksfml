@@ -10,4 +10,4 @@ Still a WIP as well.
 
 ## Additional information
 
-Based on [ArkScript 3.1.0](https://github.com/ArkScript-lang/Ark/releases/tag/v3.1.0)
+Based on [ArkScript 3.4.0](https://github.com/ArkScript-lang/Ark/releases/tag/v3.4.0)

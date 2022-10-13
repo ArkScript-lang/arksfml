@@ -1,7 +1,7 @@
 #include <sf_module.hpp>
 #include <SFML/Window/Event.hpp>
 
-Ark::Value sf_poll_event(std::vector<Ark::Value>& n, Ark::VM* vm)
+Ark::Value sf_poll_event([[maybe_unused]] std::vector<Ark::Value>& n, [[maybe_unused]] Ark::VM* vm)
 {
     if (get_window().pollEvent(get_event()))
     {
@@ -56,29 +56,29 @@ Ark::Value sf_poll_event(std::vector<Ark::Value>& n, Ark::VM* vm)
                 case sf::Keyboard::Num7: out += "7"; break;
                 case sf::Keyboard::Num8: out += "8"; break;
                 case sf::Keyboard::Num9: out += "9"; break;
-                case sf::Keyboard::Escape:   out += "escape"; break;
+                case sf::Keyboard::Escape: out += "escape"; break;
                 case sf::Keyboard::LBracket: out += "["; break;
                 case sf::Keyboard::RBracket: out += "]"; break;
                 case sf::Keyboard::Semicolon: out += ";"; break;
-                case sf::Keyboard::Comma:    out += ","; break;
-                case sf::Keyboard::Period:   out += "."; break;
-                case sf::Keyboard::Quote:    out += "'"; break;
-                case sf::Keyboard::Slash:    out += "/"; break;
+                case sf::Keyboard::Comma: out += ","; break;
+                case sf::Keyboard::Period: out += "."; break;
+                case sf::Keyboard::Quote: out += "'"; break;
+                case sf::Keyboard::Slash: out += "/"; break;
                 case sf::Keyboard::Backslash: out += "\\"; break;
-                case sf::Keyboard::Tilde:    out += "~"; break;
-                case sf::Keyboard::Equal:    out += "="; break;
-                case sf::Keyboard::Hyphen:   out += "-"; break;
-                case sf::Keyboard::Space:    out += "space"; break;
-                case sf::Keyboard::Enter:    out += "enter"; break;
-                case sf::Keyboard::Tab:      out += "tab"; break;
-                case sf::Keyboard::Add:      out += "+"; break;
+                case sf::Keyboard::Tilde: out += "~"; break;
+                case sf::Keyboard::Equal: out += "="; break;
+                case sf::Keyboard::Hyphen: out += "-"; break;
+                case sf::Keyboard::Space: out += "space"; break;
+                case sf::Keyboard::Enter: out += "enter"; break;
+                case sf::Keyboard::Tab: out += "tab"; break;
+                case sf::Keyboard::Add: out += "+"; break;
                 case sf::Keyboard::Subtract: out += "-"; break;
                 case sf::Keyboard::Multiply: out += "*"; break;
-                case sf::Keyboard::Divide:   out += "/"; break;
-                case sf::Keyboard::Left:     out += "left"; break;
-                case sf::Keyboard::Right:    out += "right"; break;
-                case sf::Keyboard::Up:       out += "up"; break;
-                case sf::Keyboard::Down:     out += "down"; break;
+                case sf::Keyboard::Divide: out += "/"; break;
+                case sf::Keyboard::Left: out += "left"; break;
+                case sf::Keyboard::Right: out += "right"; break;
+                case sf::Keyboard::Up: out += "up"; break;
+                case sf::Keyboard::Down: out += "down"; break;
                 default: out += "unknown"; break;
             }
         }
@@ -88,14 +88,14 @@ Ark::Value sf_poll_event(std::vector<Ark::Value>& n, Ark::VM* vm)
     return Ark::Value("event-empty");
 }
 
-Ark::Value sf_event(std::vector<Ark::Value>& n, Ark::VM* vm)
+Ark::Value sf_event(std::vector<Ark::Value>& n, [[maybe_unused]] Ark::VM* vm)
 {
     std::string out = "event-";
 
     if (n.size() == 0)
         throw std::runtime_error("sf:event need at least 1 argument");
 
-    for (Ark::Value::Iterator it=n.begin(); it != n.end(); ++it)
+    for (Ark::Value::Iterator it = n.begin(); it != n.end(); ++it)
     {
         if (it->valueType() != Ark::ValueType::String)
             throw Ark::TypeError("sf:event: invalid argument");
