@@ -1,0 +1,30 @@
+(import "sf.arkm")
+
+(sf:window:init 640 480 "ArkSFML test")
+(sf:window:setFPS 60)
+
+(let font (sf:load:font "Arial.ttf"))
+(let text (sf:text:make font "hello" 24 [255 255 255]))
+(let start (time))
+
+(while (sf:window:open?)
+    {
+        (mut event (sf:pollEvent))
+        (if (or (= event (sf:event "keyup" "escape")) (= event (sf:event "quit")))
+            (sf:window:close))
+
+        (mut current_time (- (time) start))
+
+        (sf:text:setColor text [
+            (+ 128 (* 127 (math:sin (+ 0 (* 0.8 current_time)))))
+            (+ 128 (* 127 (math:sin (+ 2 (* 0.8 current_time)))))
+            (+ 128 (* 127 (math:sin (+ 4 (* 0.8 current_time)))))
+        ])
+        (sf:set:pos text
+            (+ 320 (* 260 (math:cos (* 0.5 current_time))))
+            (+ 240 (* 200 (math:sin (* 0.5 current_time)))))
+
+        (sf:window:clear 0 0 0)
+        (sf:draw text)
+        (sf:window:display)
+    })

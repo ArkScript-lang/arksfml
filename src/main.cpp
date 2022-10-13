@@ -7,7 +7,7 @@
 // module functions mapping
 ARK_API Ark::mapping* getFunctionsMapping()
 {
-    Ark::mapping* map = Ark::mapping_create(17);
+    Ark::mapping* map = Ark::mapping_create(18);
     std::size_t i = 0;
 
     // window
@@ -29,6 +29,7 @@ ARK_API Ark::mapping* getFunctionsMapping()
     Ark::mapping_add(map[i++], "sf:load:font", sf_load_font);
     Ark::mapping_add(map[i++], "sf:text:make", sf_make_text);
     Ark::mapping_add(map[i++], "sf:text:set", sf_set_text);
+    Ark::mapping_add(map[i++], "sf:text:setColor", sf_set_text_color);
     Ark::mapping_add(map[i++], "sf:set:pos", sf_setpos);
     Ark::mapping_add(map[i++], "sf:width", sf_width);
     Ark::mapping_add(map[i++], "sf:height", sf_height);

@@ -1,4 +1,5 @@
 build/
+.vscode/settings.json
 *.o
 *.a
 *.so
@@ -6,4 +7,8 @@ build/
 *.dll
 *.lib
 
+*.ttf
+
 *.arkm
+*.arkc
+__arkscript__/

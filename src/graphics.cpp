@@ -92,6 +92,25 @@ Ark::Value sf_set_text(std::vector<Ark::Value>& n,
     return Ark::Nil;
 }
 
+Ark::Value sf_set_text_color(std::vector<Ark::Value>& n,
+                             [[maybe_unused]] Ark::VM* vm)
+{
+    if (n.size() != 2)
+        throw std::runtime_error(
+            "sf:text:setColor: need 2 arguments: text object, new color");
+    if (n[0].valueType() != Ark::ValueType::User ||
+        !n[0].usertypeRef().is<sf::Text>())
+        throw Ark::TypeError("sf:text:set: invalid argument (text object)");
+    if (n[1].valueType() != Ark::ValueType::List)
+        throw Ark::TypeError("sf:text:set: invalid argument (new value)");
+
+    n[0].usertypeRef().as<sf::Text>().setFillColor(
+        sf::Color(static_cast<long>(n[1].constList()[0].number()),
+                  static_cast<long>(n[1].constList()[1].number()),
+                  static_cast<long>(n[1].constList()[2].number())));
+    return Ark::Nil;
+}
+
 Ark::Value sf_setpos(std::vector<Ark::Value>& n, [[maybe_unused]] Ark::VM* vm)
 {
     if (n.size() != 3)
